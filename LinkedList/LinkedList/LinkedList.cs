@@ -113,13 +113,13 @@ namespace LinkedList
         public Node AddAfter(Node node, int value)
         {
             Node newNode = null;
-            
-                if (HasNode(node))
-                {
-                    newNode = new Node(value);
-                    AddAfter(node, newNode);
-                }
-            
+
+            if (HasNode(node))
+            {
+                newNode = new Node(value);
+                AddAfter(node, newNode);
+            }
+
             return newNode;
         }
 
@@ -203,6 +203,23 @@ namespace LinkedList
                     if (j.Value < j.next.Value)
                     {
                         Swap(ref j, ref j.next);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Interchange Sort
+        /// </summary>
+        public void InterchangeSort()
+        {
+            for (Node i = this.first; i.next != null; i = i.next)
+            {
+                for (Node j = i.next; j != null; j = j.next)
+                {
+                    if (i.Value < j.Value)
+                    {
+                        Swap(ref j, ref i);
                     }
                 }
             }
